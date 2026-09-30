@@ -1178,46 +1178,6 @@ document.querySelectorAll('.flip-card')
 });
 
 
-// PDF VIEWER
-function openPDF(title,file,number,date){
-
-    const modal=document.getElementById("pdfModal");
-
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-
-    document.getElementById("pdfTitle")
-    .innerHTML=title;
-
-
-    document.getElementById("pdfInfo")
-    .innerHTML=
-    "Nomor : "+number+
-    " | Update : "+date;
-
-
-    document.getElementById("pdfViewer")
-    .src=file;
-
-
-    document.getElementById("downloadPDF")
-    .href=file;
-
-}
-
-
-function closePDF(){
-
-    document.getElementById("pdfModal")
-    .classList.add("hidden");
-
-
-    document.getElementById("pdfModal")
-    .classList.remove("flex");
-
-
-    document.getElementById("pdfViewer")
-    .src="";
 
 }
 
@@ -1314,55 +1274,6 @@ Download
 
 
 </div>
-function openPDF(title,file,number,date){
 
-
-document.getElementById("pdfModal")
-.classList.remove("hidden");
-
-
-document.getElementById("pdfModal")
-.classList.add("flex");
-
-
-
-document.getElementById("pdfTitle")
-.innerHTML=title;
-
-
-
-document.getElementById("pdfInfo")
-.innerHTML=
-"Nomor : "+number+
-" | Update : "+date;
-
-
-
-document.getElementById("pdfViewer")
-.src=file;
-
-
-
-document.getElementById("downloadPDF")
-.href=file;
-
-
-
-}
-
-
-
-function closePDF(){
-
-
-document.getElementById("pdfModal")
-.classList.add("hidden");
-
-
-document.getElementById("pdfViewer")
-.src="";
-
-
-}
 </body>
 </html>
