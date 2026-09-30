@@ -690,35 +690,175 @@
     
 <!-- YSKN Professional NGO Upgrade Sections -->
 <section id="trust" class="py-16 bg-white">
+
 <div class="max-w-7xl mx-auto px-6">
+
+
 <div class="text-center mb-10">
-<h2 class="text-3xl font-black text-slate-900">Legalitas & Transparansi</h2>
-<p class="text-slate-500 mt-3">Membangun kepercayaan melalui tata kelola yayasan yang profesional.</p>
+
+<h2 class="text-3xl font-black text-slate-900">
+Legalitas & Transparansi
+</h2>
+
+<p class="text-slate-500 mt-3">
+Komitmen Yayasan Sahabat Kemanusiaan Nusantara
+dalam tata kelola yang profesional dan terpercaya.
+</p>
+
 </div>
 
+
+
 <div class="grid md:grid-cols-4 gap-6">
-<div class="p-6 rounded-3xl bg-sky-50 border">
+
+
+
+<!-- CARD -->
+
+<div onclick="openPDF(
+'SK Kemenkumham',
+'/dokumen/sk-kemenkumham.pdf',
+'AHU-XXXX.AH.01.04 Tahun 2026',
+'30 September 2026'
+)"
+
+class="cursor-pointer p-6 rounded-3xl bg-sky-50 border 
+hover:shadow-xl hover:-translate-y-2 transition">
+
+
 <i class="bi bi-patch-check-fill text-3xl text-sky-600"></i>
-<h3 class="font-bold mt-4">SK Kemenkumham</h3>
-<p class="text-sm text-slate-500">Informasi legalitas yayasan.</p>
+
+
+<h3 class="font-bold mt-4">
+SK Kemenkumham
+</h3>
+
+
+<p class="text-sm text-slate-500">
+Legalitas pendirian yayasan.
+</p>
+
+
+<div class="mt-4 text-xs text-green-600">
+✔ Dokumen Terverifikasi
 </div>
-<div class="p-6 rounded-3xl bg-sky-50 border">
+
+
+</div>
+
+
+
+
+
+<div onclick="openPDF(
+'NPWP Yayasan',
+'/dokumen/npwp-yayasan.pdf',
+'NPWP 00.000.000.0-000.000',
+'30 September 2026'
+)"
+
+class="cursor-pointer p-6 rounded-3xl bg-sky-50 border 
+hover:shadow-xl hover:-translate-y-2 transition">
+
+
 <i class="bi bi-receipt text-3xl text-sky-600"></i>
-<h3 class="font-bold mt-4">NPWP Yayasan</h3>
-<p class="text-sm text-slate-500">Identitas perpajakan resmi.</p>
+
+
+<h3 class="font-bold mt-4">
+NPWP Yayasan
+</h3>
+
+
+<p class="text-sm text-slate-500">
+Identitas perpajakan resmi.
+</p>
+
+
+<div class="mt-4 text-xs text-green-600">
+✔ Dokumen Terverifikasi
 </div>
-<div class="p-6 rounded-3xl bg-sky-50 border">
+
+
+</div>
+
+
+
+
+
+
+<div onclick="openPDF(
+'Laporan Dana',
+'/dokumen/laporan-dana.pdf',
+'LPJ-YSKN-2026',
+'30 September 2026'
+)"
+
+class="cursor-pointer p-6 rounded-3xl bg-sky-50 border 
+hover:shadow-xl hover:-translate-y-2 transition">
+
+
 <i class="bi bi-file-earmark-bar-graph text-3xl text-sky-600"></i>
-<h3 class="font-bold mt-4">Laporan Dana</h3>
-<p class="text-sm text-slate-500">Publikasi laporan penggunaan dana.</p>
+
+
+<h3 class="font-bold mt-4">
+Laporan Dana
+</h3>
+
+
+<p class="text-sm text-slate-500">
+Transparansi penggunaan dana.
+</p>
+
+
+<div class="mt-4 text-xs text-green-600">
+✔ Dokumen Terverifikasi
 </div>
-<div class="p-6 rounded-3xl bg-sky-50 border">
+
+
+</div>
+
+
+
+
+
+
+<div onclick="openPDF(
+'Struktur Pengurus',
+'/dokumen/struktur-pengurus.pdf',
+'SK Pengurus YSKN 2026',
+'30 September 2026'
+)"
+
+class="cursor-pointer p-6 rounded-3xl bg-sky-50 border 
+hover:shadow-xl hover:-translate-y-2 transition">
+
+
 <i class="bi bi-people-fill text-3xl text-sky-600"></i>
-<h3 class="font-bold mt-4">Struktur Pengurus</h3>
-<p class="text-sm text-slate-500">Pembina, pengawas dan pengurus.</p>
+
+
+<h3 class="font-bold mt-4">
+Struktur Pengurus
+</h3>
+
+
+<p class="text-sm text-slate-500">
+Pembina, pengawas dan pengurus.
+</p>
+
+
+<div class="mt-4 text-xs text-green-600">
+✔ Dokumen Terverifikasi
 </div>
+
+
 </div>
+
+
+
 </div>
+
+</div>
+
 </section>
 
 <section id="campaign" class="py-16 bg-slate-50">
@@ -1217,5 +1357,115 @@ function toggleFaq(btn){
 }
 document.querySelectorAll('.flip-card').forEach(card=>{card.addEventListener('click',()=>card.classList.toggle('active'));});
 </script>
+<div id="pdfModal"
+class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+
+
+<div class="bg-white w-full md:w-4/5 h-[90vh] rounded-3xl overflow-hidden">
+
+
+<div class="flex justify-between items-center p-4 border-b">
+
+
+<div>
+
+<h3 id="pdfTitle"
+class="font-bold text-lg">
+Dokumen
+</h3>
+
+<p id="pdfInfo"
+class="text-xs text-gray-500">
+</p>
+
+</div>
+
+
+<button onclick="closePDF()"
+class="text-red-600 text-xl">
+
+<i class="bi bi-x-circle-fill"></i>
+
+</button>
+
+
+</div>
+
+
+
+<iframe id="pdfViewer"
+class="w-full h-full">
+</iframe>
+
+
+
+<div class="absolute bottom-8 right-8">
+
+<a id="downloadPDF"
+class="bg-sky-600 text-white px-5 py-3 rounded-full"
+download>
+
+<i class="bi bi-download"></i>
+Download
+
+</a>
+
+</div>
+
+
+</div>
+
+
+</div>
+function openPDF(title,file,number,date){
+
+
+document.getElementById("pdfModal")
+.classList.remove("hidden");
+
+
+document.getElementById("pdfModal")
+.classList.add("flex");
+
+
+
+document.getElementById("pdfTitle")
+.innerHTML=title;
+
+
+
+document.getElementById("pdfInfo")
+.innerHTML=
+"Nomor : "+number+
+" | Update : "+date;
+
+
+
+document.getElementById("pdfViewer")
+.src=file;
+
+
+
+document.getElementById("downloadPDF")
+.href=file;
+
+
+
+}
+
+
+
+function closePDF(){
+
+
+document.getElementById("pdfModal")
+.classList.add("hidden");
+
+
+document.getElementById("pdfViewer")
+.src="";
+
+
+}
 </body>
 </html>
