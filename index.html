@@ -1155,176 +1155,73 @@ Pembina, pengawas dan pengurus.
 
     <!-- Script Block for UI Interactivity -->
     <script>
-        // DOM Elements
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const videoModal = document.getElementById('video-modal');
-        const videoIframe = document.getElementById('video-iframe');
-        const galleryModal = document.getElementById('gallery-modal');
-        const galleryModalImg = document.getElementById('gallery-modal-img');
-        const confirmModal = document.getElementById('confirm-modal');
-        const volunteerModal = document.getElementById('volunteer-modal');
 
-        // Smooth Mobile Menu Toggle
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                menuIcon.className = 'fa-solid fa-bars text-2xl';
-            } else {
-                menuIcon.className = 'fa-solid fa-xmark text-2xl';
-            }
-        });
+function toggleFaq(btn){
+    const item = btn.parentElement;
 
-        // Close Mobile Menu on Click outside or Link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.className = 'fa-solid fa-bars text-2xl';
-            });
-        });
-
-        // Copy Account Number
-        function copyToClipboard() {
-            const norekVal = document.getElementById('norek-val').innerText;
-            navigator.clipboard.writeText(norekVal).then(() => {
-                const icon = document.getElementById('copy-icon');
-                icon.className = 'fa-solid fa-check text-green-500';
-                
-                const toast = document.createElement('div');
-                toast.className = 'fixed bottom-6 right-6 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 z-50 text-sm border border-slate-800 animate-slide-in';
-                toast.innerHTML = `<i class="fa-solid fa-circle-check text-green-400"></i> Rekening berhasil disalin!`;
-                document.body.appendChild(toast);
-
-                setTimeout(() => {
-                    icon.className = 'fa-regular fa-copy';
-                    toast.remove();
-                }, 3000);
-            }).catch(err => {
-                alert('Gagal menyalin rekening: ' + err);
-            });
+    document.querySelectorAll('.faq-item')
+    .forEach(x=>{
+        if(x!==item){
+            x.classList.remove('active');
         }
+    });
 
-        // Play Video Mock Overlay
-        function openVideo() {
-            videoModal.classList.remove('hidden');
-            videoModal.classList.add('flex');
-            // Using a clean non-commercial YouTube placeholder or informative placeholder
-            videoIframe.src = "https://www.youtube.com/embed/UjgmyFh5bqA?si=Pryh6kz5r_rYsLtt";
-        }
-
-        function closeVideo() {
-            videoModal.classList.remove('flex');
-            videoModal.classList.add('hidden');
-            videoIframe.src = "";
-        }
-
-        // View Single Gallery Image
-        function openGalleryImage(src) {
-            galleryModalImg.src = src;
-            galleryModal.classList.remove('hidden');
-            galleryModal.classList.add('flex');
-        }
-
-        function closeGalleryModal() {
-            galleryModal.classList.remove('flex');
-            galleryModal.classList.add('hidden');
-            galleryModalImg.src = "";
-        }
-
-        // View Full Gallery Event Trigger
-        function viewFullGallery() {
-            alert('Mengakses galeri dokumentasi lengkap Yayasan Sahabat Kemanusiaan Nusantara...');
-        }
-
-        // View All News Event Trigger
-        function viewAllNews() {
-            alert('Menampilkan semua arsip berita dan rilis kemanusiaan...');
-        }
-
-        // Open Individual Article Event Trigger
-        function readArticle(title) {
-            alert(`Menampilkan artikel lengkap: "${title}"`);
-        }
-
-        // Confirm Modal Functions
-        function openConfirmModal() {
-            confirmModal.classList.remove('hidden');
-            confirmModal.classList.add('flex');
-        }
-
-        function closeConfirmModal() {
-            confirmModal.classList.remove('flex');
-            confirmModal.classList.add('hidden');
-        }
-
-        // Volunteer Modal Functions
-        function openVolunteerForm() {
-            volunteerModal.classList.remove('hidden');
-            volunteerModal.classList.add('flex');
-        }
-
-        function closeVolunteerForm() {
-            volunteerModal.classList.remove('flex');
-            volunteerModal.classList.add('hidden');
-        }
-
-        // Handle Forms Submissions
-        document.getElementById('confirm-donation-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih! Bukti transfer Anda berhasil diunggah. Tim administrasi kami akan segera memverifikasi kontribusi Anda.');
-            this.reset();
-            closeConfirmModal();
-        });
-
-        document.getElementById('volunteer-registration-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih atas kepedulian Anda! Anda terdaftar sebagai calon Relawan Kemanusiaan Nusantara. Tim kami akan segera menghubungi Anda melalui WhatsApp.');
-            this.reset();
-            closeVolunteerForm();
-        });
-
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih! Anda berhasil berlangganan berita rilis penyaluran donasi kami secara berkala.');
-            this.reset();
-        });
+    item.classList.toggle('active');
+}
 
 
-        // Demo Disclaimer Popup on Scroll
-        let demoShown = false;
-        const demoPopup = document.getElementById('demo-disclaimer');
-
-        function showDemoDisclaimer() {
-            if (!demoShown) {
-                demoPopup.classList.add('active');
-                demoShown = true;
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeDemoDisclaimer() {
-            demoPopup.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 250) {
-                showDemoDisclaimer();
-            }
-        });
+document.querySelectorAll('.flip-card')
+.forEach(card=>{
+    card.addEventListener('click',()=>{
+        card.classList.toggle('active');
+    });
+});
 
 
-        // Keyboard accessibility/ESC to close any modals
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeVideo();
-                closeGalleryModal();
-                closeConfirmModal();
-                closeVolunteerForm();
-            }
-        });
-    </script>
+// PDF VIEWER
+function openPDF(title,file,number,date){
+
+    const modal=document.getElementById("pdfModal");
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    document.getElementById("pdfTitle")
+    .innerHTML=title;
+
+
+    document.getElementById("pdfInfo")
+    .innerHTML=
+    "Nomor : "+number+
+    " | Update : "+date;
+
+
+    document.getElementById("pdfViewer")
+    .src=file;
+
+
+    document.getElementById("downloadPDF")
+    .href=file;
+
+}
+
+
+function closePDF(){
+
+    document.getElementById("pdfModal")
+    .classList.add("hidden");
+
+
+    document.getElementById("pdfModal")
+    .classList.remove("flex");
+
+
+    document.getElementById("pdfViewer")
+    .src="";
+
+}
+
+</script>
 
 <style>
 .yskn-card{
@@ -1361,7 +1258,7 @@ document.querySelectorAll('.flip-card').forEach(card=>{card.addEventListener('cl
 class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
 
 
-<div class="bg-white w-full md:w-4/5 h-[90vh] rounded-3xl overflow-hidden">
+<<div class="bg-white w-full md:w-4/5 h-[90vh] rounded-3xl overflow-hidden overflow-y-auto">>
 
 
 <div class="flex justify-between items-center p-4 border-b">
