@@ -966,31 +966,18 @@
     </div>
 
     <!-- Volunteer Registration Modal -->
-    <div id="volunteer-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4">
-        <div class="bg-white rounded-3xl p-6 md:p-8 max-w-lg w-full border border-slate-100 relative shadow-2xl space-y-6">
-            <button onclick="closeVolunteerForm()" class="absolute top-4 right-4 w-8 h-8 bg-slate-50 hover:bg-slate-100 text-slate-500 rounded-full flex items-center justify-center transition-all focus:outline-none">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-            <div class="text-center space-y-2">
-                <h3 class="text-xl font-bold text-slate-900">Daftar Relawan</h3>
-                <p class="text-slate-500 text-sm">Tinggalkan kontak Anda untuk bergabung dalam misi kebaikan kami berikutnya.</p>
-            </div>
-            <form id="volunteer-registration-form" onsubmit="event.preventDefault(); alert('Pendaftaran relawan berhasil dikirim!'); closeVolunteerForm();" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-700 tracking-wider mb-2">Nama Lengkap</label>
-                    <input type="text" required placeholder="Nama Lengkap Anda" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-700 tracking-wider mb-2">No. WhatsApp</label>
-                    <input type="tel" required placeholder="08XXXXXXXXXX" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-700 tracking-wider mb-2">Domisili / Kota Asal</label>
-                    <input type="text" required placeholder="Contoh: Bekasi" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all">
-                </div>
-                <button type="submit" class="w-full bg-primary-500 hover:bg-primary-600 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">Daftar Sebagai Relawan</button>
-            </form>
-        </div>
+    <!-- Call to Join -->
+<div class="bg-gradient-to-tr from-primary-500 to-primary-600 rounded-2xl text-white p-8 flex flex-col justify-between shadow-lg shadow-primary-500/20 relative overflow-hidden group">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="relative space-y-4 z-10">
+        <span class="bg-white/20 text-white px-3.5 py-1 text-xs font-bold uppercase rounded-full tracking-wider inline-block">Ingin berkontribusi lebih?</span>
+        <h3 class="text-2xl font-extrabold tracking-tight">Mari Bergabung Menjadi Bagian Relawan Kemanusiaan</h3>
+        <p class="text-primary-100 text-sm font-light leading-relaxed">Kami selalu menyambut hangat kepedulian Anda untuk terjun langsung di lapangan demi menciptakan perubahan nyata bersama kami.</p>
+    </div>
+    <a href="https://yskn-relawan-reg.vercel.app/" target="_blank" rel="noopener noreferrer" class="relative z-10 w-full text-center bg-white hover:bg-slate-50 text-primary-600 font-bold py-3.5 rounded-xl transition-all shadow-md mt-6 block">
+        Daftar Sebagai Relawan
+    </a>
+</div>
     </div>
 
     <!-- PDF Modal Viewer -->
